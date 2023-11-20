@@ -1,22 +1,22 @@
       <h2>User info</h2>
-        <% if user.profile_image.attached? %>
-          <%= image_tag user.profile_image, size: "100x100" %>
+        <% if book.user.profile_image.attached? %>
+          <%= image_tag book.user.profile_image, size: "100x100" %>
         <% else %>
           <%= image_tag 'default-image', size: "100x100" %>
         <% end %>
           <table class="table">
               <tr>
                 <th>name</th>
-                <th><%= user.name %></th>
+                <th><%= book.user.name %></th>
               </tr>
               <tr>
                 <th>introduction</td>
-                <th><%= user.introduction %></td>
+                <th><%= book.user.introduction %></td>
               </tr>
           </table>
 
       <div class="row mb-3">
-        <%= link_to raw('<i class="fa-solid fa-user-gear"></i>'), edit_user_path(user), class: "btn btn-block btn-outline-secondary" %>
+        <%= link_to raw('<i class="fa-solid fa-user-gear"></i>'), edit_user_path(book), class: "btn btn-block btn-outline-secondary" %>
       </div>
 
       <h2>New book</h2>
@@ -24,6 +24,6 @@
           <p>Title<p>
           <%= f.text_field :title, class:"form-control"  %>
           <p>Opinion<p>
-          <%= f.text_area :body, class:"form-control"  %> </br>
+          <%= f.text_area :body, class:"form-control" %> </br>
           <%= f.submit 'Create Book', class:"mt-2 btn btn-sm btn-success"%>
         <% end %>
